@@ -1,0 +1,237 @@
+===============================================================================
+1) TEST0.TXT
+
+a) Checking indexer for single file
+b) Checking output according to JSON format
+c) Checking frequency arranged in descending order
+d) Checking all case tokens 
+e) Checking special characters
+
+INPUT - 
+Mary had a a little lamb
+8/11/2015 abc123 1@1 abc123 hi HI Hi 
+OUTPUT - 
+
+{"list" : [
+    {"1" : [
+          { "test0.txt" : 2 }
+]},
+
+    {"11" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"2015" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"8" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"a" : [
+          { "test0.txt" : 2 }
+]},
+
+    {"abc123" : [
+          { "test0.txt" : 2 }
+]},
+
+    {"had" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"hi" : [
+          { "test0.txt" : 3 }
+]},
+
+    {"lamb" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"little" : [
+          { "test0.txt" : 1 }
+]},
+
+    {"mary" : [
+          { "test0.txt" : 1 }
+]}
+
+]}
+===============================================================================
+2) TEST 1.BIN
+
+a) Checking for invalid path (file doesn't exist) 
+INPUT - 
+filename = test 1.bin
+output - Invalid directory path/name test 1.bin
+
+===============================================================================
+
+3) TEST 1.TXT
+
+a) Testing spaces in file names
+
+INPUT - test1.txt
+by by by by 
+aa AA a a 
+
+OUPUT - 
+{"list" : [
+    {"a" : [
+          { "test 1.txt" : 2 }
+]},
+
+    {"aa" : [
+          { "test 1.txt" : 2 }
+]},
+
+    {"by" : [
+          { "test 1.txt" : 4 }
+]}
+
+]}
+===============================================================================
+
+4) TEST2.TXT
+
+a) Testing empty file
+
+INPUT - TEST2.TXT
+OUTPUT - Empty index table
+
+{"list" : [
+]}
+===============================================================================
+
+5) TEST1/file2
+
+a) Testing file with relative path
+Input - test1/file2 
+Soham J94
+
+OUTPUT - 
+
+{"list" : [
+    {"j94" : [
+          { "test1/file2" : 1 }
+]},
+
+    {"soham" : [
+          { "test1/file2" : 1 }
+]}
+
+]}
+===============================================================================
+
+6) TEST1
+
+a) Testing directory and recursive traversing
+INPUT - test1 directory
+OUTPUT - 
+{"list" : [
+    {"c" : [
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"cells" : [
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"j94" : [
+          { "test1/file2" : 1 }
+]},
+
+    {"on" : [
+          { "test1/xyz.txt" : 3 },
+          { "test1/file1" : 1 }
+]},
+
+    {"sea" : [
+          { "test1/file1" : 2 },
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"sells" : [
+          { "test1/file1" : 1 }
+]},
+
+    {"she" : [
+          { "test1/file1" : 1 },
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"shells" : [
+          { "test1/file1" : 1 },
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"shoar" : [
+          { "test1/xyz.txt" : 1 }
+]},
+
+    {"shore" : [
+          { "test1/file1" : 1 }
+]},
+
+    {"soham" : [
+          { "test1/file2" : 1 }
+]},
+
+    {"the" : [
+          { "test1/xyz.txt" : 1 }
+]}
+
+]}
+
+===============================================================================
+
+7) TEST2
+
+a)Checking files with same names in different relative paths
+
+INPUT
+
+files - file1, dir1/file1
+file1 - HI, HOW are you?
+dir1/file1 - Hi, I'm good how are you 
+
+OUTPUT 
+
+{"list" : [
+    {"are" : [
+          { "test2/dir1/file1" : 1 },
+          { "test2/file1" : 1 }
+]},
+
+    {"good" : [
+          { "test2/dir1/file1" : 1 }
+]},
+
+    {"hi" : [
+          { "test2/dir1/file1" : 1 },
+          { "test2/file1" : 1 }
+]},
+
+    {"how" : [
+          { "test2/dir1/file1" : 1 },
+          { "test2/file1" : 1 }
+]},
+
+    {"i" : [
+          { "test2/dir1/file1" : 1 }
+]},
+
+    {"m" : [
+          { "test2/dir1/file1" : 1 }
+]},
+
+    {"you" : [
+          { "test2/dir1/file1" : 1 },
+          { "test2/file1" : 1 }
+]}
+
+]}
+
+===============================================================================
+
